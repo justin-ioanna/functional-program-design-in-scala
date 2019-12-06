@@ -1,10 +1,12 @@
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 lazy val root = (project in file("."))
   .settings(
     name := "functional-program-design-in-scala",
     libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % "3.0.5" % Test,
-      "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
-    )
+      "com.novocode" % "junit-interface" % "0.11" % Test
+    ),
+    scalacOptions ++= Seq("-language:implicitConversions", "-deprecation"),
+    testOptions in Test += Tests
+      .Argument(TestFrameworks.JUnit, "-a", "-v", "-s")
   )
