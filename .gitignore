@@ -6,4 +6,5 @@ target/
 
 # Scala Metals
 .metals/
+metals.sbt
 .bloop/
